@@ -8,13 +8,12 @@ import { NewsServiceService } from 'src/app/services/news-service.service';
 	styleUrls: [ 'tab1.page.scss' ]
 })
 export class Tab1Page {
-	constructor(private newsService: NewsServiceService) {}
-
 	public articles: Article[] = [];
+	constructor(private newsService: NewsServiceService) {}
 
 	ngOnInit() {
 		this.newsService.getTopHeadlines().subscribe((data) => {
-			console.log(data.articles);
+			console.log(data);
 			this.articles = data.articles;
 		});
 	}
